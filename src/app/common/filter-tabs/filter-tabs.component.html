@@ -1,0 +1,14 @@
+<div class="flex space-x-3" role="group">
+  <button
+    *ngFor="let option of options"
+    class="px-7 py-2 text-sm rounded-md cursor-pointer"
+    [ngClass]="
+      selectedOption?.id === option.id
+        ? 'border border-primary-700 bg-primary-700 text-white'
+        : 'border border-gray-300 hover:bg-primary-50'
+    "
+    (click)="handleSelect(option)"
+  >
+    {{ option.label }}
+  </button>
+</div>

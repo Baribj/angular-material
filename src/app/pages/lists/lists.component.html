@@ -1,0 +1,40 @@
+<div class="container mx-auto">
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-bold">Lists</h1>
+
+    <button mat-flat-button>
+      <mat-icon class="mr-2">add</mat-icon>
+      Add a new list
+    </button>
+  </div>
+
+  <mat-tab-group [mat-stretch-tabs]="false">
+    <mat-tab label="First">
+      <div class="py-6">
+        <div class="mb-6">
+          <app-filter-tabs
+            [options]="options"
+            [selectedOption]="selectedOption()"
+            (onSelectOption)="handleSelectOption($event)"
+          />
+        </div>
+
+        <div class="mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            @for (product of products; track product.id) {
+            <app-product-card [product]="product" />
+            }
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Second"> Content 2 </mat-tab>
+    <mat-tab label="Third"> Content 3 </mat-tab>
+  </mat-tab-group>
+</div>
+
+<div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 shadow-2xl">
+  <button mat-flat-button class="!px-20 !py-6">
+    <span class="text-lg font-bold">Add list to cart</span>
+  </button>
+</div>
